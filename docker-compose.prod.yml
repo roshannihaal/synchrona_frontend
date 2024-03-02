@@ -2,15 +2,17 @@ version: '3.8'
 
 services:
     frontend:
+        extends:
+            file: docker-compose.yml
+            service: frontend
+        volumes:
+            - ./dist:/usr/src/app/dist
         networks:
             - synchrona-network
         build:
-            target: development
-        volumes:
-            - ./:/usr/src/app
+            target: production
         environment:
-            - NODE_ENV=development
-        command: npm run start
+            - NODE_ENV=production
 
 networks:
     synchrona-network:
