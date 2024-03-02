@@ -8,6 +8,6 @@ services:
             dockerfile: Dockerfile
         restart: always
         environment:
-            - BACKEND_URL=${BACKEND_URL}
+            - SYNCH_BACKEND_URL=${BACKEND_URL}
         ports:
             - ${EXPOSE_PORT}:4200
