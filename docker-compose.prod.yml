@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+    frontend:
+        extends:
+            file: docker-compose.yml
+            service: frontend
+        volumes:
+            - ./dist:/usr/src/app/dist
+        networks:
+            - synchrona-network
+        build:
+            target: production
+        environment:
+            - NODE_ENV=production
+
+networks:
+    synchrona-network:
+        name: synchrona-network
+        driver: bridge
