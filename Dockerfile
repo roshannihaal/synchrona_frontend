@@ -10,7 +10,7 @@ RUN npm install
 
 COPY . .
 
-CMD ["npm","run","start"]
+RUN npm run build
 
 FROM base as production
 
@@ -20,7 +20,4 @@ COPY package.*json .
 
 RUN npm install --omit=dev --ignore-scripts
 
-COPY . .
-
-CMD ["npm","run","build"]
-
+COPY --from=development /usr/src/app/dist ./dist
