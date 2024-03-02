@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Socket, io } from 'socket.io-client';
+import { ISocketEvent } from 'src/app/shared/interface/isocket-event';
 import { environment } from 'src/environments/environment';
 @Injectable({
     providedIn: 'root',
 })
 export class SocketService {
     private _socket: Socket;
-    public clockData: BehaviorSubject<{ date: string; percentage: number }> = new BehaviorSubject<{
-        date: string;
-        percentage: number;
-    }>({ date: '', percentage: 0 });
+    public clockData: BehaviorSubject<ISocketEvent> = new BehaviorSubject<ISocketEvent>({
+        date: '',
+        percentage: 0,
+    });
 
     connect(path: string) {
         const route = `${environment.BACKEND_URL}/${path}`;
@@ -20,13 +21,12 @@ export class SocketService {
     disconnect() {
         if (this._socket) {
             this._socket.disconnect();
-            this.clockData.next({ date: '', percentage: 0 });
         }
     }
 
     listen(path: string) {
         const route = `${path}Sync`;
-        this._socket.on(route, (data: { date: string; percentage: number }) => {
+        this._socket.on(route, (data: ISocketEvent) => {
             this.clockData.next(data);
         });
     }

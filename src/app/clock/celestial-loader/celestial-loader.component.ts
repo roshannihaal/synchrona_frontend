@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SocketService } from '../service/socket.service';
+import { ISocketEvent } from 'src/app/shared/interface/isocket-event';
 
 @Component({
     selector: 'app-celestial-loader',
@@ -12,7 +13,7 @@ export class CelestialLoaderComponent implements OnInit, OnDestroy {
     constructor(private socketService: SocketService) {}
 
     ngOnInit() {
-        this.socketService.clockData.subscribe((data: { date: string; percentage: number }) => {
+        this.socketService.clockData.subscribe((data: ISocketEvent) => {
             this.percentage = data.percentage;
         });
     }

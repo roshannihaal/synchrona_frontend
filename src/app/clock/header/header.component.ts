@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { IRefinedPair } from 'src/app/shared/interface/irefined-pair';
 
 @Component({
     selector: 'app-header',
@@ -7,10 +8,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-    items: {
-        label: string;
-        value: string;
-    }[] = [
+    items: IRefinedPair[] = [
         {
             label: 'Minute',
             value: 'minute',
@@ -33,10 +31,7 @@ export class HeaderComponent implements OnInit {
         },
     ];
 
-    activeItem: {
-        label: string;
-        value: string;
-    };
+    activeItem: IRefinedPair;
 
     @Output() changeTabEvent: EventEmitter<string> = new EventEmitter();
 
@@ -46,10 +41,12 @@ export class HeaderComponent implements OnInit {
         const key = this.router.url.split('/').at(-1);
         this.activeItem = this.items.find(item => item.value === key);
         if (this.activeItem) {
-            this.onChangeActiveItem(this.activeItem);
+            this.onChangeActiveItem(this.activeItem, true);
         }
     }
-    onChangeActiveItem(item: { label: string; value: string }) {
+    onChangeActiveItem(item: IRefinedPair, init = false) {
+        if (!init && this.activeItem.value === item.value) return;
+        this.activeItem = item;
         this.changeTabEvent.emit(item.value);
     }
 }
