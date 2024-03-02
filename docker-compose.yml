@@ -6,7 +6,6 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        restart: always
         environment:
             - SYNCH_BACKEND_URL=${BACKEND_URL}
         ports:
