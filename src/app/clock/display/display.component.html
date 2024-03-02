@@ -1,1 +1,8 @@
-<app-header (changeTabEvent)="onChangeTab($event)"></app-header> <router-outlet></router-outlet>
+<div class="main-wrap">
+    <div class="header-wrap">
+        <app-header (changeTabEvent)="onChangeTab($event)"></app-header>
+    </div>
+    <div class="body-wrap">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,5 +1,7 @@
 <div class="">
-    <div class="" *ngFor="let item of items" (click)="onChangeActiveItem(item)">
-        {{ item.label }}
-    </div>
+    <p-tabMenu
+        [model]="items"
+        [activeItem]="activeItem"
+        (activeItemChange)="onChangeActiveItem($event)"
+        [style]="{ height: '1px' }"></p-tabMenu>
 </div>
