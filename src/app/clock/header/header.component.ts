@@ -12,6 +12,10 @@ export class HeaderComponent implements OnInit {
         value: string;
     }[] = [
         {
+            label: 'Minute',
+            value: 'minute',
+        },
+        {
             label: 'Hour',
             value: 'hour',
         },
