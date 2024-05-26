@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { BehaviorSubject } from 'rxjs';
 import { Socket, io } from 'socket.io-client';
 import { GENERAL } from 'src/app/constants/general.constants';
@@ -20,7 +21,7 @@ export class SocketService {
     });
     private timeZone: string;
 
-    constructor() {
+    constructor(private messageService: MessageService) {
         this.timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     }
 
@@ -54,6 +55,28 @@ export class SocketService {
     listenRoot() {
         this._root.on(GENERAL.META_SYNC, (data: IMetaData) => {
             this.metaData.next(data);
+            if (data.status === GENERAL.SUCCESS) {
+                this.successToast(data.message);
+            }
+            if (data.status === GENERAL.ERROR) {
+                this.errorToast(data.message);
+            }
+        });
+    }
+
+    private successToast(message: string) {
+        this.messageService.add({
+            severity: 'success',
+            summary: 'SUCCESS',
+            detail: message,
+        });
+    }
+
+    private errorToast(message: string) {
+        this.messageService.add({
+            severity: 'error',
+            summary: 'ERROR',
+            detail: message,
         });
     }
 }
