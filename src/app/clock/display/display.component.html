@@ -1,8 +1,14 @@
-<div class="main-wrap">
+<div class="main-wrap" *ngIf="viewers">
     <div class="header-wrap">
         <app-header (changeTabEvent)="onChangeTab($event)"></app-header>
     </div>
     <div class="body-wrap">
-        <router-outlet></router-outlet>
+        <div class="meta">
+            <i class="pi pi-eye"></i>
+            <div class="">{{ viewers }}</div>
+        </div>
+        <div class="loader">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>

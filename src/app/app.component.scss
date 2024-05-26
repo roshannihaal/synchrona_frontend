@@ -1,0 +1,11 @@
+:host {
+    ::ng-deep {
+        .p-toast-message-icon {
+            padding-right: 1rem;
+        }
+        .p-toast .p-toast-message.p-toast-message-success,
+        .p-toast .p-toast-message.p-toast-message-error {
+            border: 0;
+        }
+    }
+}
