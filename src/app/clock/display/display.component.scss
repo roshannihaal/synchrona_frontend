@@ -7,5 +7,17 @@
     }
     .body-wrap {
         height: 93vh;
+        .meta {
+            height: 5%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            column-gap: 0.5rem;
+            padding-top: 0.5rem;
+            padding-right: 1rem;
+        }
+        .loader {
+            height: 95%;
+        }
     }
 }
