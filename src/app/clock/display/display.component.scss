@@ -7,5 +7,16 @@
     }
     .body-wrap {
         height: 93vh;
+        .meta {
+            height: 5%;
+            display: flex;
+            justify-content: flex-end;
+            column-gap: 1rem;
+            padding-top: 0.5rem;
+            padding-right: 1rem;
+        }
+        .loader {
+            height: 95%;
+        }
     }
 }
