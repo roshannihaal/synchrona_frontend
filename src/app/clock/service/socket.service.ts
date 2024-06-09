@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { BehaviorSubject } from 'rxjs';
-import { Socket, io } from 'socket.io-client';
+import { Manager, Socket } from 'socket.io-client';
 import { GENERAL } from 'src/app/constants/general.constants';
 import { IMetaData } from 'src/app/shared/interface/imeta-data';
 import { ISocketEvent } from 'src/app/shared/interface/isocket-event';
@@ -20,23 +20,25 @@ export class SocketService {
         viewers: 0,
     });
     private timeZone: string;
+    private manager: Manager;
 
     constructor(private messageService: MessageService) {
         this.timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    }
-
-    connectRoot() {
-        const route = `${environment.BACKEND_URL}/`;
-        this._root = io(route, {
+        this.manager = new Manager(environment.BACKEND_URL, {
             query: {
                 timeZone: this.timeZone,
             },
         });
     }
 
+    connectRoot() {
+        const route = '/';
+        this._root = this.manager.socket(route);
+    }
+
     connect(path: string) {
-        const route = `${environment.BACKEND_URL}/${path}`;
-        this._socket = io(route);
+        const route = `/${path}`;
+        this._socket = this.manager.socket(route);
     }
 
     disconnect() {
