@@ -28,6 +28,9 @@ export class SocketService {
             query: {
                 timeZone: this.timeZone,
             },
+            extraHeaders: {
+                'ngrok-skip-browser-warning': 'true',
+            },
         });
     }
 

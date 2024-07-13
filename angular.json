@@ -70,7 +70,8 @@
                 },
                 "serve": {
                     "options": {
-                        "host": "0.0.0.0"
+                        "host": "0.0.0.0",
+                        "disableHostCheck": true
                     },
                     "builder": "@ngx-env/builder:dev-server",
                     "configurations": {
