@@ -24,7 +24,7 @@ export class DisplayComponent implements OnInit {
         this.socketService.metaData.subscribe((data: IMetaData) => {
             this.viewers = data.viewers;
             if (data.joke) {
-                this.joke = data.joke.replace(new RegExp('\\n', 'g'), '<br>');
+                this.joke = `<b>Joke Of The Day</b>:<br><br>${data.joke.replace(new RegExp('\\n', 'g'), '<br>')}`;
             }
         });
     }
