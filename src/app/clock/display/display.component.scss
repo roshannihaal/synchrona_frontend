@@ -8,16 +8,31 @@
     .body-wrap {
         height: 93vh;
         .meta {
-            height: 5%;
+            height: 15%;
             display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            column-gap: 0.5rem;
-            padding-top: 0.5rem;
-            padding-right: 1rem;
+            flex-direction: column;
+            justify-content: space-between;
+            .eye {
+                column-gap: 0.5rem;
+                padding-top: 0.5rem;
+                padding-right: 1rem;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+            .joke-wrap {
+                display: flex;
+                justify-content: center;
+                .joke {
+                    width: 50%;
+                    text-align: center;
+                    border: 1px solid;
+                    padding: 0.5rem;
+                }
+            }
         }
         .loader {
-            height: 95%;
+            height: 80%;
         }
     }
 }

@@ -4,8 +4,13 @@
     </div>
     <div class="body-wrap">
         <div class="meta">
-            <i class="pi pi-eye"></i>
-            <div class="">{{ viewers }}</div>
+            <div class="eye">
+                <i class="pi pi-eye"></i>
+                <div class="">{{ viewers }}</div>
+            </div>
+            <div class="joke-wrap" *ngIf="joke">
+                <div class="joke" [innerHTML]="joke"></div>
+            </div>
         </div>
         <div class="loader">
             <router-outlet></router-outlet>
