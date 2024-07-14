@@ -11,6 +11,7 @@ import { IMetaData } from 'src/app/shared/interface/imeta-data';
 export class DisplayComponent implements OnInit {
     currSocket: string;
     viewers: number;
+    joke: string;
     constructor(
         private router: Router,
         private route: ActivatedRoute,
@@ -22,6 +23,9 @@ export class DisplayComponent implements OnInit {
         this.socketService.listenRoot();
         this.socketService.metaData.subscribe((data: IMetaData) => {
             this.viewers = data.viewers;
+            if (data.joke) {
+                this.joke = `<b>Joke Of The Day</b><br><br>${data.joke.replace(new RegExp('\\n', 'g'), '<br>')}`;
+            }
         });
     }
 

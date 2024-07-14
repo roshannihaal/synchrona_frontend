@@ -18,6 +18,7 @@ export class SocketService {
     });
     public metaData: BehaviorSubject<IMetaData> = new BehaviorSubject<IMetaData>({
         viewers: 0,
+        joke: '',
     });
     private timeZone: string;
     private manager: Manager;
