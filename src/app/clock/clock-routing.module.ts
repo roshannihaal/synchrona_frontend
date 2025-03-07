@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DisplayComponent } from './display/display.component';
 import { CelestialLoaderComponent } from './celestial-loader/celestial-loader.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
     {
@@ -18,6 +19,10 @@ const routes: Routes = [
                 component: CelestialLoaderComponent,
             },
         ],
+    },
+    {
+        path: '**',
+        component: NotFoundComponent,
     },
 ];
 

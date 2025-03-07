@@ -62,6 +62,8 @@ export class HeaderComponent implements OnInit {
         this.setHeaders();
         if (this.activeItem) {
             this.onChangeActiveItem(this.activeItem, true);
+        } else {
+            this.changeTabEvent.emit(this.items[1].value);
         }
     }
 
