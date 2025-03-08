@@ -23,11 +23,17 @@
             .joke-wrap {
                 display: flex;
                 justify-content: center;
+                margin-top: 1rem;
                 .joke {
                     width: 50%;
                     text-align: center;
                     border: 1px solid;
                     padding: 0.5rem;
+                }
+                @media (max-width: 425px) {
+                    .joke {
+                        width: 80%;
+                    }
                 }
             }
         }
