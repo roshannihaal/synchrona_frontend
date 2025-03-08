@@ -7,5 +7,11 @@
         .p-toast .p-toast-message.p-toast-message-error {
             border: 0;
         }
+        @media (max-width: 425px) {
+            .p-toast {
+                width: 250px !important;
+                min-width: 200px !important;
+            }
+        }
     }
 }
