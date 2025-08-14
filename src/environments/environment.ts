@@ -1,4 +1,4 @@
 export const environment = {
     NODE_ENV: 'production',
-    BACKEND_URL: 'https://horvella.roshannihaal.com',
+    BACKEND_URL: 'https://horvellaapi.roshannihaal.com',
 };
