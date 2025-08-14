@@ -15,7 +15,7 @@
             "prefix": "app",
             "architect": {
                 "build": {
-                    "builder": "@ngx-env/builder:browser",
+                    "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "outputPath": "dist/synchrona_frontend",
                         "index": "src/index.html",
@@ -30,10 +30,7 @@
                             "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
                             "node_modules/primeng/resources/primeng.min.css"
                         ],
-                        "scripts": [],
-                        "ngxEnv": {
-                            "prefix": "SYNCH_"
-                        }
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {
@@ -72,7 +69,7 @@
                     "options": {
                         "host": "0.0.0.0"
                     },
-                    "builder": "@ngx-env/builder:dev-server",
+                    "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
                             "browserTarget": "synchrona_frontend:build:production"
@@ -84,13 +81,13 @@
                     "defaultConfiguration": "development"
                 },
                 "extract-i18n": {
-                    "builder": "@ngx-env/builder:extract-i18n",
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
                         "browserTarget": "synchrona_frontend:build"
                     }
                 },
                 "test": {
-                    "builder": "@ngx-env/builder:karma",
+                    "builder": "@angular-devkit/build-angular:karma",
                     "options": {
                         "polyfills": ["zone.js", "zone.js/testing"],
                         "tsConfig": "tsconfig.spec.json",

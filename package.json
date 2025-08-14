@@ -1,6 +1,6 @@
 {
     "name": "synchrona-frontend",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
@@ -21,7 +21,6 @@
         "@angular/platform-browser": "^16.0.0",
         "@angular/platform-browser-dynamic": "^16.0.0",
         "@angular/router": "^16.0.0",
-        "@ngx-env/builder": "^17.2.3",
         "primeicons": "^7.0.0",
         "primeng": "^16.9.1",
         "rxjs": "~7.8.0",
