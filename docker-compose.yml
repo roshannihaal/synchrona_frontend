@@ -1,12 +1,8 @@
-version: '3.8'
-
 services:
     frontend:
         container_name: synchrona-frontend
         build:
             context: .
             dockerfile: Dockerfile
-        environment:
-            - SYNCH_BACKEND_URL=${BACKEND_URL}
         ports:
-            - ${EXPOSE_PORT}:4200
+            - 4200:4200
