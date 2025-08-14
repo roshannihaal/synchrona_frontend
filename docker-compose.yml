@@ -4,7 +4,5 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        environment:
-            - SYNCH_BACKEND_URL=${BACKEND_URL}
         ports:
             - 4200:4200

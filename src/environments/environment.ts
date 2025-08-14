@@ -1,4 +1,4 @@
 export const environment = {
-    NODE_ENV: import.meta.env.NODE_ENV,
-    BACKEND_URL: import.meta.env.SYNCH_BACKEND_URL,
+    NODE_ENV: 'development',
+    BACKEND_URL: 'http://localhost:3000',
 };
